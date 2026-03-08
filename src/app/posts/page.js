@@ -1,4 +1,5 @@
 import connection from "../../utils/db"
+import Link from "next/link"
 
 export default async function PostsPage () {
 
@@ -11,10 +12,12 @@ export default async function PostsPage () {
         <div>
             <h1>Posts</h1>
             {posts.map((post) => (
-                <div key={post.id}>
+                <Link key={post.id} href={`/posts/${post.id}`}>
+                <div className="post-card">
                     <h2>{post.title}</h2>
                     <p>{post.content}</p>
-      </div>
+                </div>
+                </Link>
     ))}
         </div>
     )
