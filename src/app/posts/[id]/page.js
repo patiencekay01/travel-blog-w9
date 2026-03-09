@@ -11,8 +11,8 @@ export default async function SinglePost({ params }) {
     const post = onePost.rows[0]
 
     return (
-        <div>
-            <div>
+        <div className="post-container">
+            <div className="single-post-card">
                 <h2>{post.title}</h2>
                 <p>{post.content}</p>
             </div>

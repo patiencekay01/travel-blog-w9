@@ -2,11 +2,10 @@ import connection from "@/utils/db";
 import { revalidatePath } from "next/cache";
 
 export default async function AddComment({ id }) {
+     async function handleComment(formData) {
+        'use server';
 
     const db = connection()
-
-    async function handleComment(formData) {
-        'use server';
 
         const { content } = Object.fromEntries(formData);
 
@@ -19,7 +18,7 @@ export default async function AddComment({ id }) {
 
     return (
         <>
-            <form action={handleComment}>
+            <form action={handleComment} className="comment-form">
                 <textarea name="content" placeholder="Write a comment..." required />
                 <button type="submit">Submit</button>
             </form>

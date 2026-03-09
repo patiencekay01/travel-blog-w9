@@ -1,9 +1,8 @@
-import Header from "@/components/Header";
-
 export default function Page() {
   return (
-    <div>
-      <Header />
+    <div className="home-container">
+      <h2>Welcome to Travel My Way</h2>
+      <p>Explore travel experiences my way</p>
     </div>
   );
 }
