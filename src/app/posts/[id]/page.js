@@ -1,5 +1,6 @@
 import connection from "@/utils/db";
 import AddComment from "@/components/AddComment";
+import DeleteButton from "@/components/DeleteButton";
 
 export default async function SinglePost({ params }) {
     const { id } = await params;
@@ -16,6 +17,7 @@ export default async function SinglePost({ params }) {
                 <p>{post.content}</p>
             </div>
             <AddComment id={id} />
+            <DeleteButton id={id} />
         </div>
     );
 }

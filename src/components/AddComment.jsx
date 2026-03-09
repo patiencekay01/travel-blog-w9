@@ -1,4 +1,5 @@
 import connection from "@/utils/db";
+import { revalidatePath } from "next/cache";
 
 export default async function AddComment({ id }) {
 
@@ -13,7 +14,7 @@ export default async function AddComment({ id }) {
             'INSERT INTO comments (post_id, body) VALUES ($1, $2)',
             [content, id],
         );
-        
+        revalidatePath(`/posts/${id}`);
     }
 
     return (
