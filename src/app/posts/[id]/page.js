@@ -1,4 +1,5 @@
 import connection from "@/utils/db";
+import AddComment from "@/components/AddComment";
 
 export default async function SinglePost({ params }) {
     const { id } = await params;
@@ -10,8 +11,11 @@ export default async function SinglePost({ params }) {
 
     return (
         <div>
-            <h2>{post.title}</h2>
-            <p>{post.content}</p>
+            <div>
+                <h2>{post.title}</h2>
+                <p>{post.content}</p>
+            </div>
+            <AddComment id={id} />
         </div>
-    )
+    );
 }
